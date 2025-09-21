@@ -11,15 +11,18 @@ const app = express();
 
 app.use(express.json());
 
+// API routes first
+app.use('/api/todos', todoRoutes)
+
 const __dirname = path.resolve();
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, '/frontend/dist')));
-    app.get('*', (req, res) => {
+    
+    // Catch all handler: send back React's index.html file for any non-API routes
+    app.get('/*', (req, res) => {
         res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
     })
 }
-
-app.use('/api/todos', todoRoutes)
 
 app.listen(PORT, ()=>{
     connectDB();
