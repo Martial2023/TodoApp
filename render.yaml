@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: todoapp
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        fromDatabase:
+          name: mongodb
+          property: connectionString
+    healthCheckPath: /api/todos
