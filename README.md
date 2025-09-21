@@ -340,7 +340,7 @@ Ce projet est sous licence ISC.
 
 ## 👨‍💻 Auteur
 
-Votre nom - [votre-email@example.com]
+AVADRA Martial - [martialhilarionavadra@gmail.com]
 
 ---
 
